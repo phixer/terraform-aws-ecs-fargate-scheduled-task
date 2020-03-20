@@ -134,14 +134,10 @@ resource "aws_iam_role_policy_attachment" "ecs_task_role_policy" {
 # Fargate Task Definition
 ################################################################################
 
-data "local_file" "task_definition" {
-  filename = var.task_definition
-}
-
 resource "aws_ecs_task_definition" "fargate_task" {
   family                   = var.task_name
   requires_compatibilities = ["FARGATE"]
-  container_definitions    = data.local_file.task_definition.content
+  container_definitions    = var.container_definitions
   network_mode             = "awsvpc"
   cpu                      = var.task_cpu
   memory                   = var.task_memory
