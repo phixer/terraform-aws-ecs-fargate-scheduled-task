@@ -23,9 +23,9 @@ variable "task_execution_role_arn" {
   description = "(Required) ARN of the Task Execution Role for the Fargate task"
 }
 
-variable "task_definition" {
+variable "container_definitions" {
   type        = string
-  description = "(Required) Path to the Task Definition JSON file"
+  description = "(Required) Container definitions of the Task"
 }
 
 variable "task_policy" {
