@@ -152,6 +152,6 @@ resource "aws_ecs_task_definition" "fargate_task" {
 ################################################################################
 
 resource "aws_cloudwatch_log_group" "logs" {
-  name              = "/ecs/${var.task_name}-logs"
+  name              = "/ecs/${var.task_name}"
   retention_in_days = var.logs_retention_days
 }
